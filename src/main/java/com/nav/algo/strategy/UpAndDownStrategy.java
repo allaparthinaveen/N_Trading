@@ -10,6 +10,7 @@ import java.io.IOException;
 import java.math.BigDecimal;
 import java.math.RoundingMode;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 public class UpAndDownStrategy {
@@ -26,6 +27,8 @@ public class UpAndDownStrategy {
 
         try{
             List<HistoricalData> hData = excelUtils.getData(excelFilePath);
+            //Sort the data order by date in case
+            Collections.sort(hData);
             for (HistoricalData data : hData){
                 BigDecimal currentAssertValue = BigDecimal.valueOf(data.getClose());
                 BigDecimal currentValue = currentAssertValue.multiply(numberOfAsserts);
