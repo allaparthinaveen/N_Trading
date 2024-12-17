@@ -1,0 +1,33 @@
+plugins {
+    id 'java'
+    id 'application'
+}
+
+group = 'com.nav.algo'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+}
+
+//task orgtask(type: JavaExec) {
+    //jvmArgs = ["-Djavax.net.ssl.trustStore=/Users/naveen/Downloads/cacerts", "-Djavax.net.ssl.trustStorePassword=changeit",
+    //"-Djavax.net.ssl.trustStoreType=JKS"]
+//}
+
+application {
+    mainClass.set('com.nav.algo.Main')
+}
+dependencies {
+    implementation 'org.slf4j:slf4j-api:2.0.16'
+    implementation 'ch.qos.logback:logback-classic:1.5.12'
+    implementation 'org.apache.poi:poi:3.9'
+    implementation 'org.apache.poi:poi-ooxml:5.2.5'
+    implementation 'org.apache.logging.log4j:log4j-core:2.24.1'
+    testImplementation platform('org.junit:junit-bom:5.10.0')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+test {
+    useJUnitPlatform()
+}
