@@ -26,10 +26,8 @@ public class CalculationUtils {
      * @return (change/original)X100
      */
     public static BigDecimal percentageOfChange(final BigDecimal one, final BigDecimal two){
-        BigDecimal change = one.compareTo(two) > 0 ? one.subtract(two) : two.subtract(one);
-        BigDecimal original = one.compareTo(two) > 0 ? two : one;
-
-        return change.divide(original, RoundingMode.CEILING).multiply(new BigDecimal(100));
+        BigDecimal change = two.subtract(one);
+        return change.divide(one, 4, RoundingMode.HALF_UP).multiply(new BigDecimal(100));
     }
 
     /**
