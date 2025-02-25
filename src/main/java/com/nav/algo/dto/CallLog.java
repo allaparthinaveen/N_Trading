@@ -11,5 +11,5 @@ public void addEntry(String className, String methodName)
 callHierarchy.add(className + "."+methodName);
 } 
 //Get the full call hierarchy as a string
-
+    public String getCallHierarchy(){return String.join("->",callHierarchy);}
 }
