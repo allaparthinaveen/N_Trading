@@ -3,6 +3,7 @@ package com.nav.algo;
 import com.nav.algo.strategy.UpAndDownStrategy;
 
 import java.math.BigDecimal;
+import com.algo.dto.CallLog;
 
 public class Main {
     public static void main(String[] args) {
@@ -14,8 +15,9 @@ public class Main {
         BigDecimal sellPercent = new BigDecimal(10);
         BigDecimal noOfAsserts = new BigDecimal(10);
 
+        CallLog log = new CallLog();
         UpAndDownStrategy upAndDownStrategy = new UpAndDownStrategy();
-        upAndDownStrategy.testStrategy(entryAmount, entryValue, buyPercent, sellPercent, noOfAsserts);
-
+        upAndDownStrategy.testStrategy(entryAmount, entryValue, buyPercent, sellPercent, noOfAsserts, log);
+        System.out.println("API FLOW:" + log.getCallHierarchy());
     }
 }
